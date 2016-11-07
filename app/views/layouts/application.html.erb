@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MembersArea</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">MultipleVoice</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <% if current_user %>
+        <ul class="nav navbar-nav">
+          <%= nav_entry 'Songs', songs_path %>
+          <%= nav_entry 'Members', members_path  %>
+            <!-- not display link, if it isn't a admin
+            <% if current_user.admin? %>
+            <%= nav_entry 'Members', members_path  %>
+          <% end %> -->
+        </ul>
+      <% end %>
+      
+      <% if current_user %> 
+        <ul class="nav navbar-nav navbar-right"> 
+          <li class="nav-text">Signed in as: <%= current_user.email %></li> 
+          <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
+        </ul> 
+      <% else %> 
+        <ul class="nav navbar-nav navbar-right"> 
+          <li><%= link_to "Login", 'login' %></a></li> 
+          <li><%= link_to "Signup", 'signup' %></a></li> 
+        </ul> 
+      <% end %>
+
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+    
+<div class="container">
+  <% if flash[:notice] %>
+    <div class="alert alert-info">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <%= yield %>
+</div>
+</body>
+</html>

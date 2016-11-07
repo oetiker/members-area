@@ -1,0 +1,12 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@import "scaffolds";
+@import "songs";
+
+/*deleted default text, change application.css to application.scss*/
+
+
+li.nav-text {
+  padding: 15px;
+}

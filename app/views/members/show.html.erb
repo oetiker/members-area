@@ -1,0 +1,50 @@
+<!-- <p id="notice"><%= notice %></p> -->
+
+<div class="panel panel-default">
+  <div class="panel-heading"><h1>This Member</h1></div>
+  <div class="panel-body">
+      <p>
+        <strong>First name</strong>
+        <%= @member.first_name %>
+      </p>
+
+      <p>
+        <strong>Last name</strong>
+        <%= @member.last_name %>
+      </p>
+
+      <p>
+        <strong>Email</strong>
+        <%= @member.email %>
+      </p>
+
+      <p>
+        <strong>Mobil number</strong>
+        <%= @member.mobil_number %>
+      </p>
+
+      <p>
+        <strong>Date of joining</strong>
+        <%= @member.date_of_joining %>
+      </p>
+
+      <p>
+        <strong>Exit date</strong>
+        <%= @member.exit_date %>
+      </p>
+
+          <p>
+        <strong>Choir active</strong>
+        <%= check_box_tag :choir_active, 1, @member.choir_active, :disabled => true %>
+      </p>
+
+      <p>
+        <strong>Voice</strong>
+         <%= @member.voice %>
+      </p>
+  </div>
+</div>
+
+
+<%= link_to '<i class="glyphicon glyphicon-arrow-left"></i>'.html_safe, members_path, :class => "btn btn-default", :title => "Back" %> 
+<%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_member_path(@member), :class => "btn btn-default", :title => "Edit" %>

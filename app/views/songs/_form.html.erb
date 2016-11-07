@@ -1,0 +1,61 @@
+<%= form_for @song, :html => {:class => "form-horizontal"} do |f| %>
+  <% if @song.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@song.errors.count, "error") %> prohibited this song from being saved:</h2>
+
+      <ul>
+      <% @song.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- <div class="field"> -->
+  <div class="form-group">
+    <%= f.label :number, :class => "col-md-2 control-label" %>
+    <div class="col-md-10">
+      <%= f.text_field :number, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :title, :class => "col-md-2 control-label" %>
+    <div class="col-md-10">
+      <%= f.text_field :title, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :composer, :class => "col-md-2 control-label" %>
+    <div class="col-md-10">
+      <%= f.text_field :composer, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+      <p><%= f.check_box :sopran %>
+      <%= f.label :sopran %></p>
+    </div>
+    <div class="col-md-offset-2 col-md-10">
+      <p><%= f.check_box :alt %>
+      <%= f.label :alt %></p>
+    </div>
+    <div class="col-md-offset-2 col-md-10">
+      <p><%= f.check_box :tenor %>
+      <%= f.label :tenor %></p>
+    </div>
+    <div class="col-md-offset-2 col-md-10">
+      <p><%= f.check_box :bass %>
+      <%= f.label :bass %></p>
+    </div>
+  </div>
+
+  <!-- <div class="actions"> -->
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+      <%= f.submit(:class => "btn btn-default") %>
+    </div>
+  </div>
+<% end %>

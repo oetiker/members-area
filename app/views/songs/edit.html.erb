@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h1>Editing Song</h1></div>
+  <div class="panel-body">
+
+    <%= render 'form' %>
+
+  </div>
+</div>
+
+<!-- <%= link_to 'Show', @song, :class => "btn btn-default btn-xs" %> |
+<%= link_to 'Back', songs_path, :class => "btn btn-default btn-xs" %> -->
+<%= link_to '<i class="glyphicon glyphicon-arrow-left"></i>'.html_safe, songs_path, :class => "btn btn-default", :title => "Back" %> 
+<%= link_to '<i class="glyphicon glyphicon-eye-open"></i>'.html_safe, @song, :class => "btn btn-default", :title => "Show" %> 

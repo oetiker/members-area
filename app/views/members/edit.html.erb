@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h1>Editing Member</h1></div>
+  <div class="panel-body">
+
+    <%= render 'form' %>
+
+  </div>
+</div>
+
+<%= link_to '<i class="glyphicon glyphicon-arrow-left"></i>'.html_safe, members_path, :class => "btn btn-default", :title => "Back" %> 
+<%= link_to '<i class="glyphicon glyphicon-eye-open"></i>'.html_safe, @member, :class => "btn btn-default", :title => "Show" %> 
