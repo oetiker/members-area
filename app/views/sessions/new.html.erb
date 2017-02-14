@@ -1,15 +1,40 @@
 <div class="login">
   <div class="container">
-    <div class="form">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h1>Log in</h1></div>
+      <div class="panel-body">
 
-      <h1>Log in</h1>
-      
-<%= form_for(:session, url: login_path) do |f| %> 
-  <%= f.email_field :email, :placeholder => "Email" %> 
-  <%= f.password_field :password, :placeholder => "Password" %> 
-  <%= f.submit "Log in", class: "btn-submit" %>
+<!-- <%= form_for(:session, url: login_path) do |f| %>
+  <%= f.email_field :email, :placeholder => "Email" %>
+  <%= f.password_field :password, :placeholder => "Password" %>
+  <%= f.submit "Log in", class: "btn btn-default" %>
+<% end %> -->
+
+  <%= form_for(:session, url: login_path,
+    :html => {:class => "form-horizontal"}) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :email, :class => "col-md-2 control-label" %>
+    <div class="col-md-10">
+      <%= f.email_field :email, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password, :class => "col-md-2 control-label" %>
+    <div class="col-md-10">
+      <%= f.password_field :password, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+      <%= f.submit "Log in", class: "btn btn-default" %>
+    </div>
+  </div>
 <% end %>
-    
+
+      </div>
     </div>
   </div>
 </div>

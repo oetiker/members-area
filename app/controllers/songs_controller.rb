@@ -7,7 +7,7 @@ class SongsController < ApplicationController
   def index
     if params[:q].present?
       @songs = Song.search(params[:q])
-    else 
+    else
       @songs = Song.all
     end
   end
@@ -30,7 +30,7 @@ class SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
     if @song.save
-       redirect_to @song, notice: 'Song was successfully created.' 
+       redirect_to @song, notice: "Song was successfully created."
     else
       render :new
     end
@@ -40,7 +40,7 @@ class SongsController < ApplicationController
   def update
     #respond_to do |format|
       if @song.update(song_params)
-        redirect_to @song, notice: 'Song was successfully updated.'
+        redirect_to @song, notice: "Song was successfully updated."
       else
         render :edit
       end
@@ -51,7 +51,7 @@ class SongsController < ApplicationController
   def destroy
     @song.destroy
    # respond_to do |format|
-      redirect_to songs_url, notice: 'Song was successfully destroyed.'
+      redirect_to songs_url, notice: "Song was successfully destroyed."
    # end
   end
 

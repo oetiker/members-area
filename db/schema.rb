@@ -11,20 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161024175252) do
-
-  create_table "members", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.string   "mobil_number"
-    t.string   "date_of_joining"
-    t.string   "exit_date"
-    t.boolean  "choir_active"
-    t.string   "voice"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
+ActiveRecord::Schema.define(version: 20161212194924) do
 
   create_table "songs", force: :cascade do |t|
     t.string   "number"
@@ -42,10 +29,16 @@ ActiveRecord::Schema.define(version: 20161024175252) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
+    t.string   "mobil_number"
+    t.string   "date_of_joining"
+    t.string   "exit_date"
+    t.boolean  "choir_active",     default: false,   null: false
+    t.string   "role",             default: "guest", null: false
+    t.string   "voice"
     t.string   "password_digest"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.boolean  "admin",           default: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.boolean  "changed_password", default: false
   end
 
 end

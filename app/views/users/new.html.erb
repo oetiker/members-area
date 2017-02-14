@@ -1,17 +1,12 @@
-<div class="login">
-  <div class="container">
-    <div class="form">
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h1>New User</h1></div>
+  <div class="panel-body">
 
-    <h1>Sign up</h1>
+    <%= render 'form' %>
 
-    <%= form_for @user do |f| %>
-      <%= f.text_field :first_name, :placeholder => "First name" %>
-      <%= f.text_field :last_name, :placeholder => "Last name" %>
-      <%= f.email_field :email, :placeholder => "Email" %>
-      <%= f.password_field :password, :placeholder => "Password" %>
-      <%= f.submit "Create an account", class: "btn-submit" %>
-    <% end %>
-
-  
-    </div>
   </div>
+</div>
+
+<!-- <%= link_to 'Back', songs_path, :class => "btn btn-default btn-xs" %> -->
+<%= link_to '<i class="glyphicon glyphicon-arrow-left"></i>'.html_safe, songs_path, :class => "btn btn-default", :title => "Back"%>

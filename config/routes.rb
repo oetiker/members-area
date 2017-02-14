@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
+  root to: "songs#index"
   resources :songs
-  resources :members
+  #resources :members
 
-  get 'signup' => 'users#new'
+  #get 'signup' => 'users#new'
   resources :users
 
   get 'login' => 'sessions#new'
-  resources :sessions
+  resources :sessions, :only => [:new, :create, :destroy]
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+
+  get 'reset_password' => 'password_resets#edit'
+  post 'reset_password' => 'password_resets#update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

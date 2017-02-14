@@ -3,20 +3,133 @@
 <div class="panel panel-default">
   <!-- Default panel contents -->
   <div class="panel-heading"><h1>Listing Songs</h1>
-
-<p>
-<%= form_tag( songs_path, method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q, params[:q]) %>
-  <%= submit_tag("Search", :class => "btn btn-default btn-s")  %>
-<% end %>
-</p>
-
-<%= link_to 'All Songs', songs_path, :class => "btn btn-default" %>
-
-<%= link_to 'New Song', new_song_path, :class => "btn btn-default" %>
-  </div>
   <div class="panel-body">
+  <!-- <div class="bg-info-clearfix"> -->
+
+    <div class="form-group">
+      <div class="col-md-8">
+        <div class="btn-group" role="group">
+          <%= link_to 'All Songs', songs_path, :class => "btn btn-default" %>
+        </div>
+
+        <div class="btn-group" role="group">
+          <%= link_to 'New Song', new_song_path, :class => "btn btn-default" %>
+        </div>
+      </div>
+
+
+      <form class="form-horizontal" role="search">
+        <div class="input-group">
+          <%= form_tag( songs_path, method: "get") do %>
+                  <!-- <%= label_tag(:q, "Search for:", :class => "col-md-2 control-label") %> -->
+          <!-- <div class="col-md-3"> -->
+          <!-- <div class="form-group"> -->
+            <%= text_field_tag(:q, params[:q], :placeholder => "search for", :class => "form-control") %>
+          <% end %>
+
+          <!-- </div> -->
+          <div class="input-group-btn">
+        <!-- <div class="btn-group" role="group"> -->
+                  <!-- <%= submit_tag("Search", :class => "btn btn-default btn-s")  %> -->
+            <%= button_tag(:type => "submit", :class => "btn btn-default btn-s") do %>
+              <i class="glyphicon glyphicon-search"></i>
+            <% end %>
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+      <!-- </div> -->
+
+
+
+  <!-- </div> -->
+  </div>
+</div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-6">
+    <h1>Title</h1>
+  </div>
+
+  <div class="col-md-6 text-right">
+    <!-- <form class="form-inline" role="search" style="margin-top: 20px;"> -->
+    <form class="form-inline" role="search" style="margin-bottom: 0px;">
+      <!-- <div class="input-group"> -->
+      <div class="btn-group" role="group">
+        <%= link_to 'All Songs', songs_path, :class => "btn btn-default" %>
+      </div>
+
+      <div class="btn-group" role="group">
+        <%= link_to 'New Song', new_song_path, :class => "btn btn-default" %>
+      </div>
+
+      <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search" name="q">
+          <div class="input-group-btn">
+              <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+          </div>
+      </div>
+
+
+        <!-- <%= form_tag( songs_path, method: "get") do %>
+          <%= text_field_tag(:q, params[:q], :placeholder => "search for", :class => "form-control") %>
+        <% end %>
+        <div class="input-group-btn">
+          <%= button_tag(:type => "submit", :class => "btn btn-default btn-s") do %>
+            <i class="glyphicon glyphicon-search"></i>
+          <% end %>
+        </div>
+      </div> -->
+    </form>
+
+  </div>
+</div>
+
+
+<div class="page-header">
+  <div class="pull-right">
+    <form class="form-inline pull-right" role="search">
+      <!-- <div class="input-group"> -->
+      <!-- <div class="btn-group" role="group"> -->
+        <%= link_to 'All Songs', songs_path, :class => "btn btn-default" %>
+      <!-- </div> -->
+<!--
+      <div class="btn-group" role="group"> -->
+        <%= link_to 'New Song', new_song_path, :class => "btn btn-default" %>
+      <!-- </div> -->
+
+      <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search" name="q">
+          <div class="input-group-btn">
+              <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+          </div>
+      </div>
+
+
+        <!-- <%= form_tag( songs_path, method: "get") do %>
+          <%= text_field_tag(:q, params[:q], :placeholder => "search for", :class => "form-control") %>
+        <% end %>
+        <div class="input-group-btn">
+          <%= button_tag(:type => "submit", :class => "btn btn-default btn-s") do %>
+            <i class="glyphicon glyphicon-search"></i>
+          <% end %>
+        </div>
+      </div> -->
+    </form>
+
+  </div>
+
+  <h1>Listing Songs</h1>
+
+</div>
+
+
+
+<div class="panel-body">
 <% if @songs.any? %>
 <div class="table-responsive">
   <table class="table table-striped">

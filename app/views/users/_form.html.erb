@@ -1,16 +1,16 @@
-<%= form_for @member, :html => {:class => "form-horizontal"} do |f| %>
-  <% if @member.errors.any? %>
+<%= form_for @user, :html => {:class => "form-horizontal"} do |f| %>
+  <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@member.errors.count, "error") %> prohibited this member from being saved:</h2>
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
-      <% @member.errors.full_messages.each do |message| %>
+      <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-  
+
 
   <!-- <div class="field"> -->
   <div class="form-group">
@@ -34,26 +34,57 @@
     </div>
   </div>
 
-   <div class="form-group">
+    <div class="form-group">
+    <%= f.label :role, :class => "col-md-2 control-label"%>
+    <div class="col-md-10">
+      <%= f.select :role, ["admin", "guest"], {:prompt => "Please select" }, {:class => "form-control" }%>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password, :class => "col-md-2 control-label"%>
+    <div class="col-md-10">
+      <%= f.password_field :password, :class => "form-control"%>
+    </div>
+  </div>
+
+  <!--
+    <div class="form-group">
+    <%= f.label :password_confirmation, :class => "col-md-2 control-label"%>
+    <div class="col-md-10">
+      <%= f.password_field :password_confirmation, :class => "form-control"%>
+    </div>
+  </div>
+
+-->
+
+<div class="form-group">
+  <div class="col-md-offset-2 col-md-10">
+    <%= f.check_box :changed_password %>
+    <%= f.label :changed_password%>
+  </div>
+</div>
+
+  <div class="form-group">
     <%= f.label :mobil_number, :class => "col-md-2 control-label"%>
     <div class="col-md-10">
       <%= f.text_field :mobil_number, :class => "form-control"%>
     </div>
-  </div> 
+  </div>
 
   <div class="form-group">
     <%= f.label :date_of_joining, :class => "col-md-2 control-label"%>
     <div class="col-md-10">
       <%= f.text_field :date_of_joining, :class => "form-control"%>
     </div>
-  </div> 
+  </div>
 
   <div class="form-group">
     <%= f.label :exit_date, :class => "col-md-2 control-label"%>
     <div class="col-md-10">
       <%= f.text_field :exit_date, :class => "form-control"%>
     </div>
-  </div> 
+  </div>
 
   <div class="form-group">
     <div class="col-md-offset-2 col-md-10">

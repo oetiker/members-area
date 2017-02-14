@@ -26,35 +26,38 @@
       <% if current_user %>
         <ul class="nav navbar-nav">
           <%= nav_entry 'Songs', songs_path %>
-          <%= nav_entry 'Members', members_path  %>
-            <!-- not display link, if it isn't a admin
-            <% if current_user.admin? %>
-            <%= nav_entry 'Members', members_path  %>
-          <% end %> -->
+          <%= nav_entry 'Users', users_path  %>
         </ul>
       <% end %>
-      
-      <% if current_user %> 
-        <ul class="nav navbar-nav navbar-right"> 
-          <li class="nav-text">Signed in as: <%= current_user.email %></li> 
-          <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
-        </ul> 
-      <% else %> 
-        <ul class="nav navbar-nav navbar-right"> 
-          <li><%= link_to "Login", 'login' %></a></li> 
-          <li><%= link_to "Signup", 'signup' %></a></li> 
-        </ul> 
+
+      <% if current_user %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Change password", 'reset_password' %></li>
+          <li class="nav-text">Signed in as: <%= current_user.email %></li>
+          <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+        </ul>
+      <% else %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Login", 'login' %></a></li>
+          <!-- <li><%= link_to "Signup", 'signup' %></a></li> -->
+        </ul>
       <% end %>
 
 
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-    
+
 <div class="container">
   <% if flash[:notice] %>
     <div class="alert alert-info">
       <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+  <% if flash[:error] %>
+    <div class="alert alert-danger">
+      <%= flash[:error] %>
     </div>
   <% end %>
   <%= yield %>
