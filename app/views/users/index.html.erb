@@ -60,7 +60,7 @@
     </table>
   </div>
 <% else %>
-  <p>There is no user available.</p>
+  <% flash[:error] = "There is no user available." %>
 <% end %>
 <br>
 </div>
