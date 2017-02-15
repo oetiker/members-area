@@ -1,22 +1,24 @@
 <!-- <p id="notice"><%= notice %></p> -->
+<div class="page-header">
 
-<div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading"><h1>Listing users</h1>
-
-<p>
-<%= form_tag( users_path, method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q, params[:q]) %>
-  <%= submit_tag("Search", :class => "btn btn-default btn-s")  %>
-<% end %>
-</p>
-
-<%= link_to 'All users', users_path, :class => "btn btn-default" %>
-
-<%= link_to 'New user', new_user_path, :class => "btn btn-default" %>
+  <div class="pull-right">
+    <form class="form-inline pull-right" role="search">
+        <%= link_to 'All Users', users_path, :class => "btn btn-primary" %>
+        <%= link_to 'New User', new_user_path, :class => "btn btn-primary" %>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="q">
+            <div class="input-group-btn">
+                <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+    </form>
   </div>
-  <div class="panel-body">
+
+  <h1>Users</h1>
+
+</div>
+
+<div class="page-body">
 <% if @users.any? %>
 <div class="table-responsive">
   <table class="table table-striped">

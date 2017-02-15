@@ -1,14 +1,8 @@
-<div class="login">
-  <div class="container">
-    <div class="panel panel-default">
-      <div class="panel-heading"><h1>Log in</h1></div>
-      <div class="panel-body">
+<div class="page-header">
+  <h1>Log in</h1>
+</div>
 
-<!-- <%= form_for(:session, url: login_path) do |f| %>
-  <%= f.email_field :email, :placeholder => "Email" %>
-  <%= f.password_field :password, :placeholder => "Password" %>
-  <%= f.submit "Log in", class: "btn btn-default" %>
-<% end %> -->
+<div class="page-body">
 
   <%= form_for(:session, url: login_path,
     :html => {:class => "form-horizontal"}) do |f| %>
@@ -29,12 +23,9 @@
 
   <div class="form-group">
     <div class="col-md-offset-2 col-md-10">
-      <%= f.submit "Log in", class: "btn btn-default" %>
+      <%= f.submit "Log in", class: "btn btn-primary" %>
     </div>
   </div>
-<% end %>
+  <% end %>
 
-      </div>
-    </div>
-  </div>
 </div>
