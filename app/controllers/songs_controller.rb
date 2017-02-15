@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
-  before_action :set_song, only: [:show, :edit, :update, :destroy]
-  skip_before_action :require_admin, only: [:index, :show]
+  before_action :set_song, only: [:edit, :update, :destroy]
+  skip_before_action :require_admin, only: [:index]
 
   # GET /songs
   # GET /songs.json
@@ -12,10 +12,8 @@ class SongsController < ApplicationController
     end
   end
 
-  # GET /songs/1
-  # GET /songs/1.json
-  def show
-  end
+  # def show
+  # end
 
   # GET /songs/new
   def new
@@ -30,7 +28,7 @@ class SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
     if @song.save
-       redirect_to @song, notice: "Song was successfully created."
+       redirect_to '/songs', notice: "Song was successfully created."
     else
       render :new
     end
@@ -40,7 +38,7 @@ class SongsController < ApplicationController
   def update
     #respond_to do |format|
       if @song.update(song_params)
-        redirect_to @song, notice: "Song was successfully updated."
+        redirect_to '/songs', notice: "Song was successfully updated."
       else
         render :edit
       end

@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   root to: "songs#index"
-  resources :songs
+  resources :songs, :except => [:show]
   #resources :members
 
   #get 'signup' => 'users#new'
-  resources :users
+  resources :users, :except => [:show]
 
   get 'login' => 'sessions#new'
   resources :sessions, :only => [:new, :create, :destroy]

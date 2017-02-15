@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-  skip_before_action :require_admin, only: [:index, :show]
+  before_action :set_user, only: [:edit, :update, :destroy]
+  skip_before_action :require_admin, only: [:index]
 
 
   def index
@@ -11,8 +11,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-  end
+  # def show
+  # end
 
   def new
     @user = User.new
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-       redirect_to @user, notice: "User was successfully created."
+       redirect_to '/users', notice: "User was successfully created."
     else
       render :new
     end
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: "User was successfully updated."
+      redirect_to '/users', notice: "User was successfully updated."
     else
       render :edit
     end
