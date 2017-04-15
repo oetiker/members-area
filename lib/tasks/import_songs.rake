@@ -1,15 +1,33 @@
+require 'open-uri'
+require 'csv'
+
 desc "Import songs from songs.csv"
-task import_songs: :environment do
+# task import_songs: :environment do
+task :import_songs, [:url] => [:environment] do |t, args|
   puts "Importing... done. LOL."
 
-  csv_content = download_from_internet("http://myserver.ch/songs.csv")
+  if !args.url
+    puts "Please provide an url argument in brackets!"
+    next
+  end
 
-  csv = CSV.read(csv_content)
-  # instead of csv_content it could also be :  Rails.root.join("songs.csv")
+  puts "Loading CSV from #{args.url}..."
+
+  csv_file = open(args.url)
+  csv = CSV.table(csv_file, encoding: 'UTF-8')
 
   csv.each do |song|
-    # Song.create(title: song["title"])
-
-    puts "Import: #{song["name"]}"
+    voices = song[:voices] || ""
+    composer = song[:composer] || "N/A"
+    Song.create!(
+      title: song[:title],
+      composer: composer,
+      number: song[:number],
+      sopran: voices.include?("S"),
+      alt: voices.include?("A"),
+      tenor: voices.include?("T"),
+      bass: voices.include?("B")
+    )
+    puts "Import: #{song[:composer]}"
   end
 end
