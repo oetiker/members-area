@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161212194924) do
+ActiveRecord::Schema.define(version: 20170522171722) do
 
   create_table "songs", force: :cascade do |t|
     t.string   "number"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20161212194924) do
     t.boolean  "alt"
     t.boolean  "tenor"
     t.boolean  "bass"
+    t.boolean  "canon"
   end
 
   create_table "users", force: :cascade do |t|

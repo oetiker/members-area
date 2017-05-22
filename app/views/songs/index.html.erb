@@ -32,6 +32,7 @@
         <th>Alt</th>
         <th>Tenor</th>
         <th>Bass</th>
+        <th>Canon</th>
         <th colspan="2"></th>
       </tr>
     </thead>
@@ -46,6 +47,7 @@
           <td><%= check_box_tag :alt, 1, song.alt, :disabled => true %></td>
           <td><%= check_box_tag :tenor, 1, song.tenor, :disabled => true %></td>
           <td><%= check_box_tag :bass, 1, song.bass, :disabled => true %></td>
+          <td><%= check_box_tag :canon, 1, song.canon, :disabled => true %></td>
           <!-- <td><%= link_to 'Show', song, :class => "glyphicon glyphicon-eye-open" %></td> -->
           <!-- <td><%= link_to '<i class="glyphicon glyphicon-eye-open"></i>'.html_safe, song, :title => "Show" %></td> -->
           <% if current_user.admin? %>
