@@ -59,18 +59,20 @@ class UsersController < ApplicationController
     end
 
     def write_mailinglist
-      mla = File.open("mailinglistactive", 'w')
-      mlex = File.open("mailinglistex", 'w')
-      User.all.each do |u|
-          next if u.email == "admin@example.com"
-          if u.choir_active
-            mla.write(u.email + "\n")
-          else
-            u.email
-            mlex.write(u.email + "\n")
+      if ENV["ML_PATH"]
+        mla = File.open(ENV["ML_PATH"] + "/mailinglistactive", 'w')
+        mlex = File.open(ENV["ML_PATH"] + "/mailinglistex", 'w')
+        User.all.each do |u|
+            next if u.email == "admin@example.com"
+            if u.choir_active
+              mla.write(u.email + "\n")
+            else
+              u.email
+              mlex.write(u.email + "\n")
+            end
           end
+          mla.close
+          mlex.close
         end
-        mla.close
-        mlex.close
       end
 end
