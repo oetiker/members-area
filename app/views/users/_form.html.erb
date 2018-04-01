@@ -94,6 +94,13 @@
   </div>
 
   <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+      <%= f.check_box :choir_passive %>
+      <%= f.label :choir_passive%>
+    </div>
+  </div>
+
+  <div class="form-group">
     <%= f.label :voice, :class => "col-md-2 control-label"%>
     <div class="col-md-10">
       <%= f.select :voice, ["Sopran", "Alt", "Tenor", "Bass"], { :prompt => "Please select" , :include_blank => true} , { :class => "form-control" } %>

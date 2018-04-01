@@ -32,6 +32,7 @@
           <th>Date of joining</th>
           <th>Exit date</th>
           <th>Choir active</th>
+          <th>Chor passive</th>
           <th>Voice</th>
           <th colspan="2"></th>
         </tr>
@@ -48,6 +49,7 @@
             <td><%= user.date_of_joining %></td>
             <td><%= user.exit_date %></td>
             <td><%= check_box_tag :choir_active, 1, user.choir_active, :disabled => true %></td>
+            <td><%= check_box_tag :choir_passive, 1, user.choir_passive, :disabled => true %></td>
             <td><%= user.voice %></td>
             <!-- <td><%= link_to '<i class="glyphicon glyphicon-eye-open"></i>'.html_safe, user, :title => "Show" %></td> -->
             <% if current_user.admin? %>
